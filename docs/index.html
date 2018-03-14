@@ -61,7 +61,7 @@ body {
 
 </style>
 
-<script src="lodash.core.min.js"></script>
+<script src="lodash.min.js"></script>
 <!-- <script src="markdown.min.js"></script> -->
 
 <script>
@@ -82,9 +82,15 @@ body {
     element.innerHTML = html;
   }
 
+  function renderQuestion(question) {
+    var html = _.template("<div class='question'><%= question %></div>")({ question: question.q });
+    replace("dialog", html);
+  }
+
   function init() {
     var question = _.first(questions);
     console.log(question);
+    renderQuestion(question);
 
     // $("#dialog").ht(
     //   "<div class='question'>{{ question }}</div>"+
@@ -97,10 +103,10 @@ body {
     // replace("dialog", "<h1>test<h1>");
   }
 
+  // https://stackoverflow.com/questions/11936816/call-a-function-after-complete-page-load
   window.onload = () => {
     setTimeout(init, 10);
   }
-
 
 </script>
 
