@@ -61,13 +61,10 @@ body {
 
 </style>
 
-<script src="minified.js"></script>
-<script src="markdown.min.js"></script>
+<script src="lodash.core.min.js"></script>
+<!-- <script src="markdown.min.js"></script> -->
 
 <script>
-  var MINI = require('minified');
-  var $ = MINI.$, HTML = MINI.HTML;
-
   var questions = [
     {
       q: "'Berlin is poor, but sexy', said ...",
@@ -80,8 +77,14 @@ body {
     }
   ];
 
-  $(function() {
-    var question = questions[0];
+  function replace(id, html) {
+    var element = document.getElementById(id);
+    element.innerHTML = html;
+  }
+
+  function init() {
+    var question = _.first(questions);
+    console.log(question);
 
     // $("#dialog").ht(
     //   "<div class='question'>{{ question }}</div>"+
@@ -91,8 +94,13 @@ body {
     //   { question: question.q, answers: question.a }
     // );
 
-    $(".explain").fill(HTML("<h1>test<h1>"));
-  });
+    // replace("dialog", "<h1>test<h1>");
+  }
+
+  window.onload = () => {
+    setTimeout(init, 10);
+  }
+
 
 </script>
 
