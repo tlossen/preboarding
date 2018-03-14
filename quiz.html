@@ -1,0 +1,119 @@
+<style>
+
+html {
+  background: url(back.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+  margin: 0;
+  font-family: 'Helvetica', sans-serif;
+}
+
+.outer {
+  display: table;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  background-color: fuchsia;
+  padding: 50px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  opacity: 0.8;
+}
+
+.question {
+  margin: 0;
+  margin-bottom: 35px;
+  font-size: 200%;
+  color: #fff;
+}
+
+.answer {
+  font-size: 130%;
+  margin-top: 10px;
+  margin-left: 50px;
+  display: block;
+  padding: 20px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+
+.explain {
+  margin-top: 35px;
+  font-size: 130%;
+  color: #fff;
+}
+
+</style>
+
+<script src="minified.js"></script>
+<script src="markdown.min.js"></script>
+
+<script>
+  var MINI = require('minified');
+  var $ = MINI.$, HTML = MINI.HTML;
+
+  var questions = [
+    {
+      q: "'Berlin is poor, but sexy', said ...",
+      a: [
+        "Klaus Wowereit",
+        "Angela Merkel",
+        "Oliver Samwer",
+        "John F. Kennedy"
+      ]
+    }
+  ];
+
+  $(function() {
+    var question = questions[0];
+
+    // $("#dialog").ht(
+    //   "<div class='question'>{{ question }}</div>"+
+    //   "{{each answer: answers}}"+
+    //   "<button class='answer'>{{ answer }}</button>"+
+    //   "{{/each}}",
+    //   { question: question.q, answers: question.a }
+    // );
+
+    $(".explain").fill(HTML("<h1>test<h1>"));
+  });
+
+</script>
+
+
+<div class="outer">
+  <div class="middle">
+    <div id="dialog" class="inner">
+
+      <div class="question">
+        Sample question: Each time the object is modified, will its version number be incremented?
+      </div>
+      <button class="answer">Answer 1</button>
+      <button class="answer">Answer 2</button>
+      <button class="answer">Answer 3</button>
+      <button class="answer">Answer 4</button>
+      <div class="explain">
+        bla bla <a href="http://spiegel.de">BLA</a> bla bla.
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
